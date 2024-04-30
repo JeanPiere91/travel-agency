@@ -12,11 +12,11 @@ const bookingSchema = new Schema({
     min: 1,
     default: 1,
   },
-  amount:{
-    type: Number,
-    required: true,
-    min: 0.99,
-  },
+  // amount:{
+  //   type: Number,
+  //   required: true,
+  //   min: 0.99,
+  // },
   packages: [
     {
       type: Schema.Types.ObjectId,

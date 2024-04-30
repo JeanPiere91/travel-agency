@@ -11,6 +11,15 @@ const tourSchema = new Schema({
   description: {
     type: String,
   },
+  price: {
+    type: Number,
+    required: true,
+    min: 0.99,
+  },
+  destination:{
+    type: Schema.Types.ObjectId,
+    ref: "Destination",
+  },
 });
 
 const Tour = mongoose.model("Tour", tourSchema);
