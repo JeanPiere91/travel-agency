@@ -2,33 +2,37 @@ const mongouse = require("mongouse");
 
 const { Schema } = mongouse;
 
-const packageSchema = new Schema({
-  generalTitle: {
-    type: String,
-    required: true,
-    trim: true,
-  },
-  generalDescription: {
-    type: String,
-  },
-  image: {
-    type: String,
-  },
-  price: {
-    type: Number,
-    required: true,
-    min: 0.99,
-  },
-  destination:{
-    type: Schema.Types.ObjectId,
-    ref: "Destination",
-  },
-  tours: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "Tour",
+const packageSchema = new Schema(
+  {
+    generalTitle: {
+      type: String,
+      required: true,
+      trim: true,
     },
-  ],
+    generalDescription: {
+      type: String,
+    },
+    image: {
+      type: String,
+    },
+    tours: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Tour",
+      },
+    ],
+  },
+  {
+    toJSON: {
+      virtuals: true,
+    },
+  }
+);
+
+packageSchema.virtual("totalAmount").get(function () {
+  return this.tours.aggregate({
+    $group: { _id: null, totalAmount: { $sum: "$price" } },
+  });
 });
 
 const Package = mongoose.model("Package", packageSchema);
