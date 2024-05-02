@@ -1,6 +1,5 @@
-const mongouse = require("mongouse");
-
-const { Schema } = mongouse;
+const mongoose = require("mongoose");
+const { Schema } = mongoose;
 
 const destinationSchema = new Schema({
   name: {
