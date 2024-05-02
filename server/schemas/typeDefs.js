@@ -29,6 +29,7 @@ type Package {
 }
 
 type Destination {
+    _id: ID
     name: String
 }
 
@@ -45,7 +46,7 @@ type Query {
     tours: [Tour]
     tour: Tour
     packages: [Package]
-    package: Package
+    package(_id: ID!): Package
     booking(_id: ID!): Booking
     users: [User]
     user: User
