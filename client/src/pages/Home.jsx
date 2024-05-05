@@ -4,7 +4,7 @@ import { useQuery } from '@apollo/client';
 // import queries
 
 const Home = () => {
-
+    
 };
 
 export default Home;

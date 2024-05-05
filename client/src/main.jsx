@@ -2,7 +2,20 @@ import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import App from './App.jsx';
 
+//Importing Tailwind CSS
+import './index.css'
+
 // need to setup pages
+import ErrorPage from './pages/ErrorPage';
+import Home from './pages/Home';
+import Destination from './pages/Destination';
+import Tour from './pages/Tour';
+import Package from './pages/Package';
+import Booking from './pages/Booking';
+import Profile from './pages/Profile';
+import Contact from './pages/Contact';
+import Login from './pages/Login';
+import Signup from './pages/Signup';
 
 const router= createBrowserRouter([
     {
