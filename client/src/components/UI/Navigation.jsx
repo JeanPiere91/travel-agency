@@ -25,7 +25,7 @@ function Navigation() {
             </li>
             <li>
                 <Link
-                    to="/packages"
+                    to="/package"
                     // This is a conditional (ternary) operator that checks to see if the current page is "portfolio"
                     className={currentPage === '/portfolio' ? 'text-blue-950 text-2xl font-semibold tracking-wider' : 'text-blue-950 text-2xl font-normal tracking-wider'}
                     >

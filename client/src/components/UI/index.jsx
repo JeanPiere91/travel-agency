@@ -1,5 +1,9 @@
 import Navigation from "./Navigation";
+import Card from "./Card";
+import Label from "./Label";
 
 export {
-    Navigation
+    Navigation,
+    Card,
+    Label
 }

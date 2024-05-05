@@ -32,11 +32,11 @@ const router= createBrowserRouter([
                 element: <Destination />
             },
             {
-                path: '/tour/:id',
+                path: '/package/:id',
                 element: <Tour />
             },
             {
-                path: '/package/:id',
+                path: '/package',
                 element: <Package />
             },
             {
