@@ -4,7 +4,11 @@ import { useQuery } from '@apollo/client';
 // import queries
 
 const Home = () => {
-
+  return (
+    <div>
+      <img src=""></img>
+    </div>
+  );
 };
 
 export default Home;
