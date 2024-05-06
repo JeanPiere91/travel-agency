@@ -2,7 +2,26 @@
     {
       "username": "username",
       "email": "example@mail.com",
-      "password": "123456789"
+      "password": "123456789",
+      "bookings": []
+    },
+    {
+      "username": "jean",
+      "email": "jean@gmail.com",
+      "password": "password1234",
+      "bookings": []
+    },
+    {
+      "username": "andrii",
+      "email": "andrii@gmail.com",
+      "password": "password1234",
+      "bookings": []
+    },
+    {
+      "username": "harry",
+      "email": "harry@gmail.com",
+      "password": "password1234",
+      "bookings": []
     }
 ]
   
