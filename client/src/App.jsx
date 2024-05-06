@@ -1,10 +1,10 @@
 import './App.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import Nav from './components/Nav';
 import { Outlet } from 'react-router-dom';
 import { ApolloClient, ApolloProvider, InMemoryCache, createHttpLink, } from '@apollo/client';
 import { StoreProvider } from './utils/GlobalState';
+import { setContext } from '@apollo/client/link/context';
 
 
 const httpLink = createHttpLink({
@@ -32,7 +32,6 @@ function App() {
       <StoreProvider>
       <div>
         <Header />
-        <Nav />
           <main>
             <Outlet />
           </main>

@@ -30,9 +30,16 @@ const packageSchema = new Schema(
 );
 
 packageSchema.virtual("totalAmount").get(function () {
-  return this.tours.aggregate({
-    $group: { _id: null, totalAmount: { $sum: "$price" } },
-  });
+  let sum = 0;
+  if (this.tours){
+    for (const tour of this.tours) {
+      sum += tour.price;
+    }
+  }
+  return sum;
+  // return this.tours.aggregate({
+  //   $group: { _id: null, totalAmount: { $sum: "$price" } },
+  // });
 });
 
 const Package = mongoose.model("Package", packageSchema);
