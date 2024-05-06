@@ -34,7 +34,7 @@ function Login(props) {
   };
 
   return (
-    <div>
+    <div className='mt-[100px] bg-red-500 border-2'>
       <Link to="/signup">Signup</Link>
       <h3>Login</h3>
       <form onSubmit={handleFormSubmit}>

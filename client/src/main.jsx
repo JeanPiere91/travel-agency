@@ -1,14 +1,23 @@
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import App from './App.jsx';
-import Home from './pages/Home.jsx';
 import Packages from './pages/Packages.jsx';
-import Contact from './pages/Contact.jsx';
 import About from './pages/About.jsx';
-import Login from './pages/Login.jsx';
-import Signup from './pages/Signup.jsx';
+
+//Importing Tailwind CSS
+import './index.css'
 
 // need to setup pages
+import ErrorPage from './pages/ErrorPage';
+import Home from './pages/Home';
+import Destination from './pages/Destination';
+import Tour from './pages/Tour';
+import Package from './pages/Package';
+import Booking from './pages/Booking';
+import Profile from './pages/Profile';
+import Contact from './pages/Contact';
+import Login from './pages/Login';
+import Signup from './pages/Signup';
 
 const router= createBrowserRouter([
     {
@@ -45,11 +54,11 @@ const router= createBrowserRouter([
                 element: <Destination />
             },
             {
-                path: '/tour/:id',
+                path: '/package/:id',
                 element: <Tour />
             },
             {
-                path: '/package/:id',
+                path: '/package',
                 element: <Package />
             },
             {
