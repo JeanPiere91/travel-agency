@@ -42,12 +42,18 @@ type Booking {
     packages: [Package]
 }
 
+input PackageFilter{
+    destination: String!
+}
+
 type Query {
     destinations: [Destination]
     destination(_id: ID!): Destination
     tours: [Tour]
     tour(_id: ID!): Tour
     packages: [Package]
+    packagesfiltered1(input: PackageFilter): [Package]
+    packagesfiltered(destination: String!): [Package]
     package(_id: ID!): Package
     booking(_id: ID!): Booking
     users: [User]
