@@ -25,7 +25,8 @@ type Package {
     generalTitle: String
     generalDescription: String
     image: String
-    price: Float
+    totalAmount: Float
+    tours: [Tour]
 }
 
 type Destination {
@@ -34,6 +35,7 @@ type Destination {
 }
 
 type Booking {
+    _id: ID
     purchaseDate: String
     people: Int
     amount: Float
@@ -42,14 +44,14 @@ type Booking {
 
 type Query {
     destinations: [Destination]
-    destination: Destination
+    destination(_id: ID!): Destination
     tours: [Tour]
-    tour: Tour
+    tour(_id: ID!): Tour
     packages: [Package]
     package(_id: ID!): Package
     booking(_id: ID!): Booking
     users: [User]
-    user: User
+    user(_id: ID!): User
 }
 
 type Mutation {
@@ -57,15 +59,15 @@ type Mutation {
 
     addUser(username: String!, email: String!, password: String!): Auth
     updateUser(username: String, email: String, password: String): User
-    deleteUser(_id: ID!): Boolean
+    deleteUser(_id: ID!): User
 
     addDestination(name: String!): Destination
     updateDestination(_id: ID!, name: String!): Destination
-    deleteDestination(_id: ID!): Boolean
+    deleteDestination(_id: ID!): Destination
 
-    addPackage(generalTitle: String!, generalDescription: String!, image: String, tours: [ID]!): Package
+    addPackage(generalTitle: String!, generalDescription: String!, image: String, tours: [ID]): Package
     updatePackage(_id: ID!, generalTitle: String!, generalDescription: String!, image: String, tours: [ID]!): Package
-    deletePackage(_id: ID!): Boolean
+    deletePackage(_id: ID!): Package
 
     addBooking(people: Int, packages: [ID]!): Booking
     updateBooking(_id: ID!, people: Int, packages: [ID]!): Booking
