@@ -11,7 +11,7 @@ function Header() {
         <div>
           <ul>
             <li>
-              <Link to='/Booking'>View Your Bookings</Link>
+              <Link to='/Booking'>Bookings</Link>
             </li>
             <li>
               <a href='/' onClick={() => Auth.logout()}>Logout</a>
@@ -24,9 +24,6 @@ function Header() {
         <div>
           <ul>
             <li>
-              <Link to='/signup'>Signup</Link>
-            </li>
-            <li>
               <Link to='/login'>Login</Link>
             </li>
           </ul>
@@ -37,25 +34,11 @@ function Header() {
 
   return (
     <div>
-      <header>
-        <img src>Logo</img>
-        <h1>
-          <Link to='/'>
-            Travel Agency
-          </Link>
-        </h1>
-
-        <nav>
-          {loginStatus()}
-        </nav>
-        </header> 
-        
-        <div>
-          <nav className="flex justify-between items-center bg-white/40 h-20 fixed inset-0">
-                  <Navigation/>
-          </nav>
-        </div>
-      </div>
+      <nav className="flex justify-between items-center bg-white/40 h-20 fixed inset-0">
+              <Navigation/>
+              {loginStatus()}
+      </nav>
+    </div>
   );
 }
 

@@ -30,7 +30,7 @@ function Signup(props) {
   };
 
   return (
-    <div>
+    <div className='m-[100px]'>
       <Link to="/login">Login</Link>
       <h3>Signup</h3>
       <form onSubmit={handleFormSubmit}>
