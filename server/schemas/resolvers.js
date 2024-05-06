@@ -5,7 +5,7 @@ const { signToken, AuthenticationError } = require('../utils/auth');
 const resolvers = {
     Query: {
         users: async () => {
-            return User.find();
+            return User.find().populate('bookings');
           },
              
         user: async (parent, args, context) => {
@@ -29,20 +29,21 @@ const resolvers = {
           destinations: async () => {
             return Destination.find();
           },
-          destination: async (parent, { destId }) => {
-            return Destination.findOne({ _id: destId });
+          destination: async (parent, { _id }) => {
+            return Destination.findById({ _id });
           },
           tours: async () => {
-            return Tour.find();
+            return Tour.find({}).populate('destination');
           },
-          tour: async (parent, { tourId }) => {
-            return Tour.findOne({ _id: tourId });
+          tour: async (parent, { _id }) => {
+            return Tour.findById({ _id }).populate('destination');
           },
           packages: async () => {
-            return Package.find();
+            return Package.find().populate('tours');
+            //return Package.find().populate('tours').populate('destination');
           },
           package: async (parent, { _id }) => {
-            return Package.findById(_id);
+            return Package.findById(_id).populate('tours').populate('destination');
           },
     },
 
@@ -60,9 +61,16 @@ const resolvers = {
       
             throw AuthenticationError;
           },
-          deleteUser: async (parent, { userId }) => {
-            return User.findOneAndDelete({ _id: userId });
+          //???
+          deleteUser: async (parent, args, context) => {
+            if (context.user) {
+              return User.findOneAndDelete({ _id: context.user._id });
+            }
+            throw AuthenticationError;
           },
+          // deleteUser: async (parent, { userId }) => {
+          //   return User.findOneAndDelete({ _id: userId });
+          // },
       
           login: async (parent, { email, password }) => {
             const user = await User.findOne({ email });
@@ -84,35 +92,52 @@ const resolvers = {
           addDestination: async (parent, { name }) => {
             return Destination.create({ name });
           },
-          updateDestination: async (parent, { id, name }) => {
-            return await Destination.findOneAndUpdate(
-              { _id: id }, 
-              { name },
-              { new: true }
+          updateDestination: async (parent, { _id, name }) => {
+            const updateDest = {name: name};
+            return await Destination.findByIdAndUpdate(
+              _id, 
+              updateDest,
+              { new: true, }
             );
           },
-          deleteDestination: async (parent, { destId }) => {
-            Tour.updateMany({destination: destId}, {"$pull":{destination}});
-            return Destination.findOneAndDelete({ _id: destId });
+          deleteDestination: async (parent, { _id }) => {
+             Tour.updateMany({destination: _id}, {"$set":{destination: null}});
+            return Destination.findByIdAndDelete(_id);
           },
           addPackage: async (parent, { generalTitle, generalDescription, image, tours }) => {
             return Package.create({ generalTitle, generalDescription, image, tours });
           },
-          updatePackage: async (parent, { id, generalTitle, generalDescription, image, tours }) => {
-            //const update = {generalTitle: generalTitle};
-            return await Package.findOneAndUpdate(
-              { _id: id }, 
-              { generalTitle },
-              //update,
-              // {
-              //   $addToSet: { comments: { commentText } },
-              // },
-      
+          updatePackage: async (parent, { _id, generalTitle, generalDescription, image, tours }) => {
+
+            // const updatePackage = {generalTitle: generalTitle, generalDescription: generalDescription, image: image, tours: tours};
+            //console.log(updatePackage.totalAmount)
+            //console.log(updatePackage);
+            //  const pack = await Package.findOne({_id: _id});
+            //  console.log(pack);
+             return await Package.findOneAndUpdate(
+              {_id: _id},
+              {
+               "$set": { "generalTitle": generalTitle, "generalDescription": generalDescription, "image": image, "tours": tours}
+              },
               { new: true }
-            );
+            ).populate('tours');
+            // return await Package.findByIdAndUpdate(
+            //   _id, 
+            //   updatePackage,
+            //   //update,
+            //   // {
+            //   //   $addToSet: { comments: { commentText } },
+            //   // },
+      
+            //   { new: true }
+            // );
           },
-          deletePackage: async (parent, { packageId }) => {
-            return Package.findOneAndDelete({ _id: packageId });
+          deletePackage: async (parent, { _id }) => {
+
+            //  const pack = await Package.findOne({_id: _id});
+            //  console.log(pack);
+             return Package.findByIdAndDelete(_id).populate('tours');
+            //  return Package.findOneAndDelete({ _id: _id }).populate('tours');
           },
              
     }
