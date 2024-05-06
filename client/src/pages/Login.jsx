@@ -39,7 +39,7 @@ function Login(props) {
       <h3>Login</h3>
       <form onSubmit={handleFormSubmit}>
         <div>
-          <label htmlFor="email">Email adress:</label>
+          <label htmlFor="email">Email:</label>
           <input 
             placeholder="example@email.com" 
             name="email" 
