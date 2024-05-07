@@ -17,7 +17,7 @@ function Card({ name, price }) {
                 <div className='p-1 m-2 flex items-center'>
                     <Link className='font-semibold bg-white rounded-md px-3 py-2 text-blue-950 text-center hover:text-white hover:bg-blue-700  hover:font-semibold'
                     // to={`/profiles/${profile._id}`}
-                    to='/packages/1'
+                    to='/package/1'
                     >
                         See more
                     </Link>

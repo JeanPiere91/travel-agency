@@ -34,7 +34,7 @@ function Header() {
 
   return (
     <div>
-      <nav className="flex justify-between items-center bg-white/40 h-20 fixed inset-0">
+      <nav className="flex justify-between items-center bg-blue-rgba  h-20 fixed inset-0 z-50">
               <Navigation/>
               {loginStatus()}
       </nav>

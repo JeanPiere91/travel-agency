@@ -40,7 +40,7 @@ function Navigation() {
                 <Link
                     to="/"
                     // This is a conditional (ternary) operator that checks to see if the current page is "about"
-                    className={currentPage === '/' ? 'text-blue-950 text-2xl font-semibold tracking-wider' : 'text-blue-950 text-2xl font-normal tracking-wider'}
+                    className={currentPage === '/' ? 'text-white text-2xl font-semibold tracking-wider' : 'text-white text-2xl font-normal tracking-wider'}
                     >
                     Travel Logo
                 </Link>
@@ -49,7 +49,7 @@ function Navigation() {
                 <Link
                     to="/about"
                     // This is a conditional (ternary) operator that checks to see if the current page is "about"
-                    className={currentPage === '/about' ? 'text-blue-950 text-2xl font-semibold tracking-wider' : 'text-blue-950 text-2xl font-normal tracking-wider'}
+                    className={currentPage === '/about' ? 'text-white text-2xl font-semibold tracking-wider' : 'text-white text-2xl font-normal tracking-wider'}
                     >
                     About Us
                 </Link>
@@ -58,7 +58,7 @@ function Navigation() {
                 <Link
                     to="/package"
                     // This is a conditional (ternary) operator that checks to see if the current page is "portfolio"
-                    className={currentPage === '/package' ? 'text-blue-950 text-2xl font-semibold tracking-wider' : 'text-blue-950 text-2xl font-normal tracking-wider'}
+                    className={currentPage === '/package' ? 'text-white text-2xl font-semibold tracking-wider' : 'text-white text-2xl font-normal tracking-wider'}
                     >
                     Packages
                 </Link>
@@ -67,7 +67,7 @@ function Navigation() {
                 <Link
                     to="/contact"
                     // This is a conditional (ternary) operator that checks to see if the current page is "contact"
-                    className={currentPage === '/contact' ? 'text-blue-950 text-2xl font-semibold tracking-wider' : 'text-blue-950 text-2xl font-normal tracking-wider'}
+                    className={currentPage === '/contact' ? 'text-white text-2xl font-semibold tracking-wider' : 'text-white text-2xl font-normal tracking-wider'}
                     >
                     Contact
                 </Link>
