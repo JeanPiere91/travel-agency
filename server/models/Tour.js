@@ -11,6 +11,11 @@ const tourSchema = new Schema({
   description: {
     type: String,
   },
+  days:{
+    type: Number,
+    min: 1,
+    default: 1,
+  },
   price: {
     type: Number,
     required: true,
