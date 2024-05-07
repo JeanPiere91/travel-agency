@@ -42,35 +42,59 @@ const resolvers = {
       return Package.find().populate("tours");
       //return Package.find().populate('tours').populate('destination');
     },
-    packagesfiltered: async (parent, { destination },  context) => {
-      // console.log(destination);
-      console.log(context);
-      const packs = await Package.find();
-      // console.log(packs.length);
-      return packs.filter((pack) => {
-        //console.log(pack.tours.length);
-        //console.log(pack.tours.destination);
-        let result = pack.tours.length;
-        // console.log(pack.generalTitle);
-        // console.log(result);
-        if (result) {
-          for (const tourID of pack.tours) {
-            //console.log(tourID);
-            //const tourID1= "66336dedbff93a4e867892c8";
-            //const tour = Tour.findOne({_id: tourID1});
-            const tour = Tour.findById({ tourID });
-            console.log(tour.title);
-            const dest = Destination.findById(tour.destination);
-            //  console.log(dest);
-            if (dest === destination) return true;
-          }
-        }
-        return false;
+    packagesfiltered: async (parent, { destination }, context) => {
+      const packs = await Package.find().populate({
+        path: "tours",
+        populate: { path: "destination" },
       });
-      //return Package.find().populate('tours');
+
+      let found = false;
+      return packs.filter((pack) => {
+        let result = pack.tours.length;
+        if (result) {
+          pack.tours.forEach((tour) => {
+            if (tour.destination.name === destination) {
+              found = true;
+              return;
+            }
+          });
+        }
+        return found;
+      });
     },
     package: async (parent, { _id }) => {
       return Package.findById(_id).populate("tours").populate("destination");
+    },
+    checkout: async (parent, args, context) => {
+      const url = new URL(context.headers.referer).origin;
+      console.log(url);
+      await Booking.create({ packages: args.packages.map(({ _id }) => _id) });
+      const line_items = [];
+
+      for (const package of args.packages) {
+        line_items.push({
+          price_data: {
+            currency: 'usd',
+            package_data: {
+              generalTitle: package.generalTitle,
+              generalDescription: package.generalDescription,
+              image: [`${url}/images/${package.image}`],
+            },
+            unit_amount: package.totalAmount,// * 100,
+          },
+          quantity: package.purchaseQuantity,
+        });
+      }
+
+      const session = await stripe.checkout.sessions.create({
+        payment_method_types: ['card'],
+        line_items,
+        mode: 'payment',
+        success_url: `${url}/success?session_id={CHECKOUT_SESSION_ID}`,
+        cancel_url: `${url}/`,
+      });
+
+      return { session: session.id };
     },
   },
 

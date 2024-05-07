@@ -46,6 +46,19 @@ input PackageFilter{
     destination: String!
 }
 
+type Checkout {
+    session: ID
+}
+
+input PackageInput {
+    _id: ID
+    purchaseQuantity: Int
+    generalTitle: String
+    generalDescription: String
+    image: String
+    totalAmount: Float
+  }
+
 type Query {
     destinations: [Destination]
     destination(_id: ID!): Destination
@@ -58,6 +71,7 @@ type Query {
     booking(_id: ID!): Booking
     users: [User]
     user(_id: ID!): User
+    checkout(packages: [PackageInput]): Checkout
 }
 
 type Mutation {
