@@ -2,32 +2,32 @@
     {
       "generalTitle": "Capital Blooms",
       "generalDescription": "3 day trip departing from Sydney to Canberra then back to Sydney. Along this guided tour you will visit various towns and attractions",
-      "image": "https://www.flightcentre.com.au/sites/default/files/styles/product-200x200-optimized/global/product-images/CBFT-Floriade-636789-56-TAUS-api-dd89b70286ad122c8c1fe733c1595a8c.jpg?itok=Pfs35rbh"
+      "image": "/images/capitalblooms.jpg"
     },
     {
       "generalTitle":"Kakadu, Katherine and Litchfield Explorer",
       "generalDescription": "4 day trip departing Darwin, includes 3 breakfasts, 3 lunches and 2 dinners. Will visit Litchfield National Park, Kakadu National Park and Katherine Hot Springs",
-      "image": "https://www.flightcentre.com.au/sites/default/files/styles/product-200x200-optimized/global/product-images/INT_Kakadu_Jim_jim_falls-9a44aafe80acc50017730ebd43605162.jpg?itok=46OxWxft"
+      "image": "/images/kakadutrip.jpg"
     },
     {
       "generalTitle":"Kings Canyon and Uluru",
       "generalDescription": "3 day trip, experience the outback of Australia visiting the Uluru-Kata-Tjuta cultural centre, learn about the natural and geographical history of the Land. Visit the Uluru-Kata Tjuta National Park.",
-      "image": "https://www.flightcentre.com.au/sites/default/files/styles/product-200x200-optimized/global/product-images/sbuka-banner-1-14a8d2ed574511b82dc2dd320fba9678.jpg?itok=LWX5LImX"
+      "image": "/images/ulurutrip.jpg"
     },
     {
       "generalTitle":"Walls of Jerusalem Winter Experience",
       "generalDescription": "4 day trip visiting the Tasmanian Wild Dog Creek base camp at Jerusalem National Park. Great opporunities to trek through the Tasmanian alphine wilderness.",
-      "image": "https://www.flightcentre.com.au/sites/default/files/styles/product-200x200-optimized/global/product-images/5068-26-userimage1-500x1000-d04e82c47a4d2f6f99a7426e7988754b.jpg?itok=1OUDx96i"
+      "image": "/images/tasmaniatrip.jpg"
     },
     {
       "generalTitle":"Larapinta Trai",
       "generalDescription": "3 day trip visiting the Larapinta Trail in Alice Springs. Stay in a semi-permanent camps and enjoy the walks along the Larapinta Trail.",
-      "image": "https://www.flightcentre.com.au/sites/default/files/styles/product-200x200-optimized/global/product-images/2830-1-userimage1-500x1000-e736be1901b051e5e52f0d7e7ebf330c.jpg?itok=lOvKAtzq"
+      "image": "/images/larapintatrip.jpg"
     },
     {
       "generalTitle":"Port Stephens From Sydney",
       "generalDescription": "4 day trip from Sydney to Port Stephens. This is a round trip where you will travel via private transport travelling to the Blue Mountains, Hunter Valley and Port Stephens then back down to Sydney.",
-      "image": "https://www.flightcentre.com.au/sites/default/files/styles/product-200x200-optimized/global/product-images/Port-Stephens-From-Sydney-main-Blue-Mountains-832861707926830_crop_flip_750_400_f2f2f2_center-center-faca056d30b849067b68d03fe9673217.jpg?itok=xLktBNo4"
+      "images": "/images/portstephenstrip.jpg"
     }
 ]
   
