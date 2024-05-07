@@ -18,6 +18,7 @@ type Tour {
     description: String
     price: Float
     destination: Destination
+    days: Int
 }
 
 type Package {
@@ -26,6 +27,7 @@ type Package {
     generalDescription: String
     image: String
     totalAmount: Float
+    totalDays: Int
     tours: [Tour]
 }
 

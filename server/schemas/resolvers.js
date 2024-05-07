@@ -39,8 +39,10 @@ const resolvers = {
       return Tour.findById({ _id }).populate("destination");
     },
     packages: async () => {
-      return Package.find().populate("tours");
-      //return Package.find().populate('tours').populate('destination');
+      return Package.find().populate({
+        path: "tours",
+        populate: { path: "destination" },
+      });
     },
     packagesfiltered: async (parent, { destination }, context) => {
       const packs = await Package.find().populate({
@@ -53,7 +55,8 @@ const resolvers = {
         let result = pack.tours.length;
         if (result) {
           pack.tours.forEach((tour) => {
-            if (tour.destination.name === destination) {
+            if (tour.destination.name.indexOf(destination) >= 0) {
+            //if (tour.destination.name === destination) {
               found = true;
               return;
             }

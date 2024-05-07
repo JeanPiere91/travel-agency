@@ -37,9 +37,15 @@ packageSchema.virtual("totalAmount").get(function () {
     }
   }
   return sum;
-  // return this.tours.aggregate({
-  //   $group: { _id: null, totalAmount: { $sum: "$price" } },
-  // });
+});
+packageSchema.virtual("totalDays").get(function () {
+  let days = 0;
+  if (this.tours){
+    for (const tour of this.tours) {
+      days += tour.days;
+    }
+  }
+  return days;
 });
 
 const Package = mongoose.model("Package", packageSchema);

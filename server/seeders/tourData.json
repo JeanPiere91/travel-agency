@@ -3,37 +3,37 @@
       "title": "Capital Blooms",
       "description": "3 day trip departing from Sydney to Canberra then back to Sydney. Along this guided tour you will visit various towns and attractions",
       "price": 1241,
-      "destination": "Sydney"
+      "days": 3
     },
     {
         "title": "Kakadu, Katherine and Litchfield Explorer",
         "description": "4 day trip departing Darwin, includes 3 breakfasts, 3 lunches and 2 dinners. Will visit Litchfield National Park, Kakadu National Park and Katherine Hot Springs",
         "price": 1345,
-        "destination": "Northern Territory"
+        "days": 4
     },
     {
       "title": "Kings Canyon and Uluru",
       "description": "3 day trip, experience the outback of Australia visiting the Uluru-Kata-Tjuta cultural centre, learn about the natural and geographical history of the Land. Visit the Uluru-Kata Tjuta National Park.",
       "price": 1424,
-      "destination": "Alice Springs"
+      "days": 3
     },
     {
       "title": "Walls of Jerusalem Winter Experience",
       "description": "4 day trip visiting the Tasmanian Wild Dog Creek base camp at Jerusalem National Park. Great opporunities to trek through the Tasmanian alphine wilderness.",
       "price": 1995,
-      "destination":"Tasmania"
+      "days": 4
     },
     {
       "title": "Larapinta Trail", 
       "description": "3 day trip visiting the Larapinta Trail in Alice Springs. Stay in a semi-permanent camps and enjoy the walks along the Larapinta Trail.", 
       "price": 2095,
-      "destination":"Alice Springs"
+      "days": 3
     },
     {
       "title": "Port Stephens From Sydney", 
       "description": "4 day trip from Sydney to Port Stephens. This is a round trip where you will travel via private transport travelling to the Blue Mountains, Hunter Valley and Port Stephens then back down to Sydney.", 
       "price": 2495,
-      "destination":"Sydney"
+      "days": 4
     }
   ]
   
