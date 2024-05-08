@@ -48,7 +48,6 @@ db.once('open', async () => {
     }
     tour.destination = tempDest._id;
     await tour.save();
-    // console.log(tour);
     if (i < packages.length){
       let pack = packages[i];
       pack.tours.push(tour._id);
