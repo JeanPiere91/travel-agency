@@ -56,7 +56,6 @@ const resolvers = {
         if (result) {
           pack.tours.forEach((tour) => {
             if (tour.destination.name.indexOf(destination) >= 0) {
-            //if (tour.destination.name === destination) {
               found = true;
               return;
             }
@@ -66,7 +65,6 @@ const resolvers = {
       });
     },
     package: async (parent, { packageId }) => {
-      // return Package.findById( { _id:packageId } ).populate("tours").populate("destination");
       return Package.findOne({ _id:packageId }).populate("tours");
     },
     checkout: async (parent, args, context) => {
@@ -118,16 +116,12 @@ const resolvers = {
 
       throw AuthenticationError;
     },
-    //???
     deleteUser: async (parent, args, context) => {
       if (context.user) {
         return User.findOneAndDelete({ _id: context.user._id });
       }
       throw AuthenticationError;
     },
-    // deleteUser: async (parent, { userId }) => {
-    //   return User.findOneAndDelete({ _id: userId });
-    // },
 
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
@@ -169,11 +163,6 @@ const resolvers = {
       parent,
       { _id, generalTitle, generalDescription, image, tours }
     ) => {
-      // const updatePackage = {generalTitle: generalTitle, generalDescription: generalDescription, image: image, tours: tours};
-      //console.log(updatePackage.totalAmount)
-      //console.log(updatePackage);
-      //  const pack = await Package.findOne({_id: _id});
-      //  console.log(pack);
       return await Package.findOneAndUpdate(
         { _id: _id },
         {
@@ -186,22 +175,9 @@ const resolvers = {
         },
         { new: true }
       ).populate("tours");
-      // return await Package.findByIdAndUpdate(
-      //   _id,
-      //   updatePackage,
-      //   //update,
-      //   // {
-      //   //   $addToSet: { comments: { commentText } },
-      //   // },
-
-      //   { new: true }
-      // );
     },
     deletePackage: async (parent, { _id }) => {
-      //  const pack = await Package.findOne({_id: _id});
-      //  console.log(pack);
       return Package.findByIdAndDelete(_id).populate("tours");
-      //  return Package.findOneAndDelete({ _id: _id }).populate('tours');
     },
   },
 };
