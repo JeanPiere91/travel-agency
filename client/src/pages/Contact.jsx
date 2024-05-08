@@ -1,10 +1,10 @@
 function Contact() {
     // Need to write functions for forms
   return (
-    <div>
+    <div className="bg-red-500">
       <h2>Contact Us</h2>
         <div>
-          <form onSubmit={handleFormSubmit}>
+          <form >
             <label>Name: </label>
             <input /> {/* need to add in */}
             <label>Email: </label>

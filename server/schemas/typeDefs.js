@@ -69,7 +69,7 @@ type Query {
     packages: [Package]
     packagesfiltered1(input: PackageFilter): [Package]
     packagesfiltered(destination: String!): [Package]
-    package(_id: ID!): Package
+    package(packageId: ID!): Package
     booking(_id: ID!): Booking
     users: [User]
     user(_id: ID!): User
