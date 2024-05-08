@@ -49,7 +49,7 @@ const router= createBrowserRouter([
                 element: <Destination />
             },
             {
-                path: '/package/:id',
+                path: '/package/:packageId',
                 element: <PackageDetail />
             },
             {

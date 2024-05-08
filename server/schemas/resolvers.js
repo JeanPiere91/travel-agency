@@ -65,8 +65,9 @@ const resolvers = {
         return found;
       });
     },
-    package: async (parent, { _id }) => {
-      return Package.findById(_id).populate("tours").populate("destination");
+    package: async (parent, { packageId }) => {
+      // return Package.findById( { _id:packageId } ).populate("tours").populate("destination");
+      return Package.findOne({ _id:packageId }).populate("tours");
     },
     checkout: async (parent, args, context) => {
       const url = new URL(context.headers.referer).origin;
