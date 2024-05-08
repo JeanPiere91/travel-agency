@@ -1,7 +1,6 @@
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import App from './App.jsx';
-import Packages from './pages/Packages.jsx';
 import About from './pages/About.jsx';
 
 //Importing Tailwind CSS
@@ -11,8 +10,8 @@ import './index.css'
 import ErrorPage from './pages/ErrorPage';
 import Home from './pages/Home';
 import Destination from './pages/Destination';
-import Tour from './pages/Tour';
 import Package from './pages/Package';
+import PackageDetail from './pages/PackageDetail';
 import Booking from './pages/Booking';
 import Profile from './pages/Profile';
 import Contact from './pages/Contact';
@@ -28,10 +27,6 @@ const router= createBrowserRouter([
             {
                 index: true,
                 element: <Home />
-            }, 
-            {
-                path: '/packages',
-                element: <Packages />
             },
             {
                 path: '/contact',
@@ -54,8 +49,8 @@ const router= createBrowserRouter([
                 element: <Destination />
             },
             {
-                path: '/package/:id',
-                element: <Tour />
+                path: '/package/:packageId',
+                element: <PackageDetail />
             },
             {
                 path: '/package',

@@ -64,11 +64,8 @@ const resolvers = {
         return found;
       });
     },
-    package: async (parent, { _id }) => {
-      return Package.findById(_id).populate({
-        path: "tours",
-        populate: { path: "destination" },
-      });
+    package: async (parent, { packageId }) => {
+      return Package.findOne({ _id:packageId }).populate("tours");
     },
     checkout: async (parent, args, context) => {
       const url = new URL(context.headers.referer).origin;
