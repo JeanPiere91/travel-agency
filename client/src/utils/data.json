@@ -1,0 +1,13 @@
+{
+    "information" : [
+        {
+            "description" : "Andrii is a skilled backend developer with a passion for creating robust and efficient server-side applications. With a keen eye for detail and a deep understanding of programming languages such as JavaScript. Andrii excels at designing and implementing scalable solutions to complex problems. His expertise in database management systems like SQL, NoSQL and GraphQL allows him to create seamless data-driven applications. Andrii is a valuable asset to any team, bringing a strong work ethic and a commitment to excellence in every project he undertakes."
+        },
+        {
+            "description" : "Harry is a talented frontend developer with a deep understanding of JavaScript. His expertise extends to popular frameworks and libraries such as React, enabling him to create dynamic and interactive user interfaces. Harry's keen eye for design and attention to detail result in visually appealing and user-friendly applications. His proficiency in CSS and HTML allows him to implement responsive designs that work seamlessly across various devices. With a passion for staying updated with the latest trends and technologies in frontend development, Harry consistently delivers high-quality and innovative solutions."
+        },
+        {
+            "description" : "Jean Piere is a seasoned frontend developer with a unique skill set encompassing both C# and JavaScript. His diverse background allows him to approach frontend development with a holistic perspective, blending the strengths of both languages to create robust and efficient applications. Jean Piere's expertise in C# brings a strong understanding of object-oriented programming principles, which he seamlessly integrates with his deep knowledge of JavaScript and its frameworks such as React and Angular. His proficiency in both languages enables him to tackle complex frontend challenges with ease, delivering high-quality solutions that exceed expectations."
+        }
+    ]
+}
