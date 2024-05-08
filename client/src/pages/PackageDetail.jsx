@@ -1,5 +1,5 @@
 import img from '../assets/img1.jpg'
-import { Label, Paragraph } from '../components/UI';
+import { Label, Paragraph, Cart } from '../components/UI';
 
 function PackageDetail () {
     return (
@@ -17,7 +17,9 @@ function PackageDetail () {
                     <Paragraph description="Destination"/>
                 </div>
             </div>
-            <div className="bg-green-600 h-[300px] col-span-2 my-4"></div>
+            <div className="bg-green-600 h-[300px] col-span-2 my-4 flex flex-col content-evenly">
+                <Cart/>
+            </div>
         </div>
     )
 }

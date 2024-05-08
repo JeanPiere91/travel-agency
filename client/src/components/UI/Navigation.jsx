@@ -1,39 +1,37 @@
 import { Link, useLocation } from 'react-router-dom';
-
+import Auth from "../../utils/auth";
 
 function Navigation() {
     const currentPage = useLocation().pathname;
-    
-    // function loginStatus() {
-    //     if (Auth.loggedIn()) {
-    //       return (
-    //         <div>
-    //           <ul>
-    //             <li>
-    //               <Link to='/Booking'>View Your Bookings</Link>
-    //             </li>
-    //             <li>
-    //               <a href='/' onClick={() => Auth.logout()}>Logout</a>
-    //             </li>
-    //           </ul>
-    //         </div>
-    //       );
-    //     } else {
-    //       return (
-    //         <div>
-    //           <ul>
-    //             <li>
-    //               <Link to='/signup'>Signup</Link>
-    //             </li>
-    //             <li>
-    //               <Link to='/login'>Login</Link>
-    //             </li>
-    //           </ul>
-    //         </div>
-    //       );
-    //     }  
-    //   }
 
+    function showNavigation() {
+        if (Auth.loggedIn()) {
+          return (
+            <li>
+                <Link
+                    // This is a conditional (ternary) operator that checks to see if the current page is "contact"
+                    className='text-white text-2xl font-normal tracking-wider'
+                    onClick={() => Auth.logout()}
+                    >
+                    Logout
+                </Link>
+            </li>
+          );
+        } else {
+          return (
+            <li>
+                <Link
+                    to="/login"
+                    // This is a conditional (ternary) operator that checks to see if the current page is "contact"
+                    className={currentPage === '/login' ? 'text-white text-2xl font-semibold tracking-wider' : 'text-white text-2xl font-normal tracking-wider'}
+                    >
+                    Login
+                </Link>
+            </li>
+          );
+        }
+      }
+      
     return (
         <ul className="w-full flex items-center justify-around font-bold">
             <li >
@@ -71,16 +69,8 @@ function Navigation() {
                     >
                     Contact
                 </Link>
-            </li> 
-        {/* <li>
-                <Link
-                    to="/login"
-                    // This is a conditional (ternary) operator that checks to see if the current page is "contact"
-                    className={currentPage === '/login' ? 'text-blue-950 text-2xl font-semibold tracking-wider' : 'text-blue-950 text-2xl font-normal tracking-wider'}
-                    >
-                    Login
-                </Link>
-            </li>*/}
+            </li>
+            {showNavigation()}
         </ul>
     );
 }
