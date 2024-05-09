@@ -1,3 +1,4 @@
+// Require all necessary elements
 const express = require("express");
 const { ApolloServer } = require("@apollo/server");
 const { expressMiddleware } = require("@apollo/server/express4");
@@ -7,13 +8,17 @@ const { authMiddleware } = require("./utils/auth");
 const { typeDefs, resolvers } = require("./schemas");
 const db = require("./config/connection");
 
+// Sets the port
 const PORT = process.env.PORT || 3001;
 const app = express();
+
+// Creates an Appolo server with specific typeDefs and resolvers
 const server = new ApolloServer({
   typeDefs,
   resolvers,
 });
 
+// Starts a server
 const startApolloServer = async () => {
   await server.start();
 
