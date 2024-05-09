@@ -40,7 +40,7 @@ function Navigation() {
                     // This is a conditional (ternary) operator that checks to see if the current page is "about"
                     className={currentPage === '/' ? 'text-white text-2xl font-semibold tracking-wider' : 'text-white text-2xl font-normal tracking-wider'}
                     >
-                    Travel Logo
+                    Awesome Travel Agency
                 </Link>
             </li>
             <li >
