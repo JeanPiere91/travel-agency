@@ -17,7 +17,7 @@ const PackageList = ({packages}) => {
                             {package1.generalTitle}
                         </div>
                         <div className="text-left font-medium text-sm mt-1 mb-2">
-                            USD 0
+                            
                         </div>
                     </div>
                     <div className='p-1 m-2 flex items-center'>

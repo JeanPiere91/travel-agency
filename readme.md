@@ -36,6 +36,8 @@ Awesome Travel Agency is a Travel Agency Application which allows a user to sign
 - THEN I am prompted to login
 - WHEN I view packages
 - THEN I see various tour packages available
+- WHEN I click on a package
+- THEN I see the package in more detail
 - WHEN I add a package to my cart
 - THEN I see the package has been added to my cart
 - WHEN I checkout
