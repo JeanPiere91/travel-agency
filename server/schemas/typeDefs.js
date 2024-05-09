@@ -73,10 +73,10 @@ type Query {
     booking(_id: ID!): Booking
     users: [User]
     user(_id: ID!): User
-    checkout(packages: [PackageInput]): Checkout
 }
 
 type Mutation {
+    checkout(packages: [PackageInput]): Checkout
     login(email: String!, password: String!): Auth
 
     addUser(username: String!, email: String!, password: String!): Auth

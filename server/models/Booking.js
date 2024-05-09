@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
-
+// Defines a booking document that contains purchaseDate, number of peoples and package list
 const bookingSchema = new Schema({
   purchaseDate: {
     type: Date,
@@ -12,11 +12,6 @@ const bookingSchema = new Schema({
     min: 1,
     default: 1,
   },
-  // amount:{
-  //   type: Number,
-  //   required: true,
-  //   min: 0.99,
-  // },
   packages: [
     {
       type: Schema.Types.ObjectId,

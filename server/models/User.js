@@ -4,6 +4,7 @@ const { Schema } = mongoose;
 const bcrypt = require('bcrypt');
 const Booking = require('./Booking');
 
+// Defines a user document that contains username, email, password and bookings list (ID)
 const userSchema = new Schema({
   username: {
     type: String,

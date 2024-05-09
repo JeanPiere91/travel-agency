@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 
 const { Schema } = mongoose;
 
+// Defines a tour document that contains title, description, days, price and destination (ID).
 const tourSchema = new Schema({
   title: {
     type: String,

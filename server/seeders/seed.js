@@ -1,7 +1,7 @@
 const db = require('../config/connection');
 const { Booking, Destination, Package, Tour, User } = require('../models');
 const cleanDB = require('./cleanDB');
-
+// Requires data from the json files for User, Destination, Package and Tour
 const userData = require('./userData.json');
 const destinationData = require('./destinationData.json');
 const packageData = require('./packageData.json');
@@ -15,12 +15,10 @@ db.once('open', async () => {
   await cleanDB("Tour", "tours");
   await cleanDB("User", "users");
 
+  // Insetrts multiple documents into the User, Destination, Tour and Package collections
   const users = await User.insertMany(userData);
   const destinations = await Destination.insertMany(destinationData);
-  // const obj = JSON.parse(tourData);
-  // console.log(obj);
   const tours = await Tour.insertMany(tourData);
-  // console.log(tours);
   const packages = await Package.insertMany(packageData);
   let tempDest = destinations[destinations.length - 1];
   for (let i = 0; i < tours.length; i++){
@@ -46,22 +44,16 @@ db.once('open', async () => {
         tempDest = destinations[0];
         break;
     }
+    // Sets proper destination id to the tour.destination
     tour.destination = tempDest._id;
     await tour.save();
+    // Pushes proper tour to the package.tours collection
     if (i < packages.length){
       let pack = packages[i];
       pack.tours.push(tour._id);
       await pack.save();
     }
   }
-  // for (newTour of tours){
-  //   newTour.destination = tempDest._id;
-  //    await newTour.save();
-  //   for (newPackage of packages){
-  //     newPackage.tours.push(newTour._id);
-  //     await newPackage.save();
-  //   }
-//  }
 
   console.log('all done!');
   process.exit(0);

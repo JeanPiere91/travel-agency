@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 
 const { Schema } = mongoose;
 
+// Defiens a package document that contains generalTitle, generalDescription, image link, list of tours (ID)
 const packageSchema = new Schema(
   {
     generalTitle: {
@@ -29,6 +30,7 @@ const packageSchema = new Schema(
   }
 );
 
+// Defines virtual properties totalAmount and totalDays that calculates sum of all tours price and days.
 packageSchema.virtual("totalAmount").get(function () {
   let sum = 0;
   if (this.tours){
