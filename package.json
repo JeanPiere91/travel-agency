@@ -9,7 +9,7 @@
     "setup": "cd server && npm install && cd ../client && npm install --production=false",
     "seed": "cd server && npm run seed",
     "build": "cd client && npm run build",
-    "render-build":"npm run setup && npm run build && npm run seed"
+    "render-build": "npm run setup && npm run build && npm run seed"
   },
   "keywords": [],
   "author": "",
